@@ -1,10 +1,11 @@
 import { HeaderOrders } from "./components/HeaderOrders"
+import { ListOrders } from "./components/ListOrders"
 
 export default function Orders(){
     return (
         <div>
             <HeaderOrders/>
-            <p>List Orders</p>
+            <ListOrders/>
         </div>
     )
 }
