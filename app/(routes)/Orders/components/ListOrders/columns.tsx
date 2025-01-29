@@ -11,8 +11,8 @@ import Image from "next/image"
 
 export const columns: ColumnDef<Order>[] = [
     {
-        accessorKey: "profile Image",
-        header: "Profile Image",
+        accessorKey: "profileImage",
+        header: "Imagen",
         cell: ({ row }) => {
             const image = row.getValue("profileImage")
             return (
@@ -24,7 +24,7 @@ export const columns: ColumnDef<Order>[] = [
         }
     },
     {
-        accessorKey: "name",
+        accessorKey: "order",
         header: ({ column }) => {
             return (
                 <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
@@ -34,30 +34,56 @@ export const columns: ColumnDef<Order>[] = [
             )
         },
     },
-    {
-        accessorKey: "order",
-        header: "Order",
-    },
+
     {
         accessorKey: "estado",
         header: "Estado",
     },
     {
         accessorKey: "tipoInspeccion",
-        header: "tipoInspeccion",
+        header: "Tipo de Inspeccion",
     },
     {
         accessorKey: "fechaProgramada",
-        header: "fechaProgramada",
+        header: "Fecha Programada",
     },
     {
         accessorKey: "procesoProduccion",
-        header: "procesoProduccion",
+        header: "Proceso de Produccion",
     },
     {
         accessorKey: "especificacionProceso",
-        header: "especificacionProceso",
+        header: "Especificacion de Proceso",
     },
+    {
+        accessorKey: "responsableCT",
+        header: "Responsable Centro Trabajo",
+    },
+    {
+        accessorKey: "responsableInspeccion",
+        header: "Responsable de Inspección",
+    },
+    {
+        accessorKey: "lote",
+        header: "Lote",
+    },
+    {
+        accessorKey: "cliente",
+        header: "Cliente",
+    },
+    {
+        accessorKey: "fig",
+        header: "Fig",
+    },
+    {
+        accessorKey: "proyecto",
+        header: "Proyecto",
+    },
+    {
+        accessorKey: "area",
+        header: "Area",
+    },
+
     {
         id: "actions",
         header: "Actions",
@@ -75,7 +101,7 @@ export const columns: ColumnDef<Order>[] = [
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
 
-                        <Link href={'/order/${id}'}>
+                        <Link href={`/Orders/${id}`}>
                             <DropdownMenuItem>
                                 <Pencil className="w-4 h-4" mr-2 />
                                 Editar

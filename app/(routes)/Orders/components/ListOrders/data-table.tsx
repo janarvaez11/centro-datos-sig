@@ -76,8 +76,8 @@ export function DataTable<TData, TValue>({
             <div className="flex items-center mb-2">
                 <Input
                     placeholder="Filtrar la orden"
-                    value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
-                    onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)}
+                    value={(table.getColumn("order")?.getFilterValue() as string) ?? ""}
+                    onChange={(event) => table.getColumn("order")?.setFilterValue(event.target.value)}
                 />
             </div>
 
@@ -87,7 +87,7 @@ export function DataTable<TData, TValue>({
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => {
-                                    return(
+                                    return (
                                         <TableHead key={header.id}>
                                             {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                                         </TableHead>
@@ -98,29 +98,37 @@ export function DataTable<TData, TValue>({
                             </TableRow>
                         ))}
                     </TableHeader>
-                    {table.getRowModel().rows?.length?(
-                        table.getRowModel().rows.map((row) => (
-                            <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
-                                {row.getVisibleCells().map((cell) => (
-                                    <TableCell key={cell.id}>
-                                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                    </TableCell>
-                                ))}
-                            </TableRow>
-                        ))
-
-                    ):(
-                        <TableRow>
-                            <TableCell colSpan={columns.length} className="h-24 text-center">
-                                No hay registro de ordenes
-                            </TableCell>
-                        </TableRow>
-                    )}
                     <TableBody>
+                        {table.getRowModel().rows?.length ? (
+                            table.getRowModel().rows.map((row) => (
+                                <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
+                                    {row.getVisibleCells().map((cell) => (
+                                        <TableCell key={cell.id}>
+                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                        </TableCell>
+                                    ))}
+                                </TableRow>
+                            ))
 
+                        ) : (
+                            <TableRow>
+                                <TableCell colSpan={columns.length} className="h-24 text-center">
+                                    No hay registro de ordenes
+                                </TableCell>
+                            </TableRow>
+                        )}
                     </TableBody>
 
                 </Table>
+
+            </div>
+            <div className="flex items-center justify-end space-x-2 py-4">
+                <Button variant="outline" size="sm" onClick={()=> table.previousPage()} disabled={!table.getCanPreviousPage()}>
+                    Anterior
+                </Button>
+                <Button variant="outline" size="sm" onClick={()=> table.nextPage()} disabled={!table.getCanNextPage()}>
+                    Siguiente
+                </Button>
 
             </div>
 

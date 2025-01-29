@@ -369,6 +369,20 @@ export function FormCreateOrder(props: FormCreateOrderProps) {
 
                         <FormField
                             control={form.control}
+                            name="lote"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Cantidad de Lote</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="Ej: 0000" type="number" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+
+                        <FormField
+                            control={form.control}
                             name="muestra"
                             render={({ field }) => (
                                 <FormItem>
@@ -479,19 +493,7 @@ export function FormCreateOrder(props: FormCreateOrderProps) {
                             )}
                         />
 
-                        <FormField
-                            control={form.control}
-                            name="lote"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Lote</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="Ej: 0000" type="number" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
+
 
                     </div>
                     <Button type="submit" disabled={!isValid}> Registrar Orden</Button>
