@@ -11,8 +11,13 @@ import Image from "next/image"
 
 export const columns: ColumnDef<Order>[] = [
     {
+<<<<<<< HEAD
         accessorKey: "profile Image",
         header: "Profile Image",
+=======
+        accessorKey: "profileImage",
+        header: "Imagen",
+>>>>>>> cbe7eb7130fd6a196709b947e4b7799ba8bf236d
         cell: ({ row }) => {
             const image = row.getValue("profileImage")
             return (
@@ -24,7 +29,11 @@ export const columns: ColumnDef<Order>[] = [
         }
     },
     {
+<<<<<<< HEAD
         accessorKey: "name",
+=======
+        accessorKey: "order",
+>>>>>>> cbe7eb7130fd6a196709b947e4b7799ba8bf236d
         header: ({ column }) => {
             return (
                 <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
@@ -34,16 +43,21 @@ export const columns: ColumnDef<Order>[] = [
             )
         },
     },
+<<<<<<< HEAD
     {
         accessorKey: "order",
         header: "Order",
     },
+=======
+
+>>>>>>> cbe7eb7130fd6a196709b947e4b7799ba8bf236d
     {
         accessorKey: "estado",
         header: "Estado",
     },
     {
         accessorKey: "tipoInspeccion",
+<<<<<<< HEAD
         header: "tipoInspeccion",
     },
     {
@@ -59,6 +73,52 @@ export const columns: ColumnDef<Order>[] = [
         header: "especificacionProceso",
     },
     {
+=======
+        header: "Tipo de Inspeccion",
+    },
+    {
+        accessorKey: "fechaProgramada",
+        header: "Fecha Programada",
+    },
+    {
+        accessorKey: "procesoProduccion",
+        header: "Proceso de Produccion",
+    },
+    {
+        accessorKey: "especificacionProceso",
+        header: "Especificacion de Proceso",
+    },
+    {
+        accessorKey: "responsableCT",
+        header: "Responsable Centro Trabajo",
+    },
+    {
+        accessorKey: "responsableInspeccion",
+        header: "Responsable de Inspección",
+    },
+    {
+        accessorKey: "lote",
+        header: "Lote",
+    },
+    {
+        accessorKey: "cliente",
+        header: "Cliente",
+    },
+    {
+        accessorKey: "fig",
+        header: "Fig",
+    },
+    {
+        accessorKey: "proyecto",
+        header: "Proyecto",
+    },
+    {
+        accessorKey: "area",
+        header: "Area",
+    },
+
+    {
+>>>>>>> cbe7eb7130fd6a196709b947e4b7799ba8bf236d
         id: "actions",
         header: "Actions",
         cell: ({ row }) => {
@@ -75,7 +135,11 @@ export const columns: ColumnDef<Order>[] = [
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
 
+<<<<<<< HEAD
                         <Link href={'/order/${id}'}>
+=======
+                        <Link href={`/Orders/${id}`}>
+>>>>>>> cbe7eb7130fd6a196709b947e4b7799ba8bf236d
                             <DropdownMenuItem>
                                 <Pencil className="w-4 h-4" mr-2 />
                                 Editar
